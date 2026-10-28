@@ -62,3 +62,133 @@
   display: block;
   margin-bottom: 5px;
 }
+
+/* Barra de búsqueda del menú: sticky dentro de la sección, no invasiva */
+.menu-search-wrap {
+  position: sticky;
+  top: 15px;
+  z-index: 20;
+  max-width: 420px;
+  margin: 0 auto 50px;
+}
+
+.menu-search-wrap input {
+  width: 100%;
+  border: 2px solid #DA9F5B;
+  border-radius: 30px;
+  padding: 12px 22px;
+  background: rgba(255, 251, 242, 0.95);
+  box-shadow: 0 8px 20px -12px rgba(51, 33, 29, 0.45);
+  color: #33211D;
+  font-weight: 500;
+}
+
+.menu-search-wrap input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(218, 159, 91, 0.35);
+}
+
+.menu-search-wrap i {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  color: #DA9F5B;
+  pointer-events: none;
+}
+
+/* Grid uniforme de productos del menú */
+.menu-category {
+  margin-bottom: 20px;
+}
+
+.menu-category-title {
+  position: relative;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+}
+
+.menu-category-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: #DA9F5B;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 25px;
+  margin-bottom: 10px;
+}
+
+.menu-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px -16px rgba(51, 33, 29, 0.4);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px -16px rgba(51, 33, 29, 0.5);
+}
+
+.menu-card-img {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.menu-card-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-card-price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #33211D;
+  color: #FFFBF2;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menu-card-body {
+  padding: 16px 18px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card-body h4 {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.menu-card-body p {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+.menu-no-results {
+  display: none;
+  text-align: center;
+  color: #8a8a8a;
+  padding: 40px 0;
+}
