@@ -1,7 +1,7 @@
 # Las 3 Espigas de Oro - Panadería y Bodega
 
-Sitio web para una panadería-bodega ficticia ("Las 3 Espigas de Oro",
-San Juan de Miraflores, Lima), adaptado a partir de una plantilla como proyecto final del curso **TodoCode**.
+Sitio web para una panadería-bodega real, llamada "Las 3 Espigas de Oro",
+ubicada San Juan de Miraflores, Lima, adaptado a partir de una plantilla como proyecto final del curso **TodoCode**.
 
 ## Contenido
 
