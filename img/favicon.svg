@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <circle cx="32" cy="32" r="32" fill="#DA9F5B"/>
-  <text x="32" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#33211D" text-anchor="middle">3E</text>
+  <path d="M32 14c10 0 17 6.5 17 15 0 9-8 19-17 19S15 38 15 29c0-8.5 7-15 17-15z" fill="#FFFBF2"/>
+  <path d="M32 14c10 0 17 6.5 17 15 0 2.3-.4 4.6-1.2 6.8-3.2-5-9.2-8.3-15.8-8.3s-12.6 3.3-15.8 8.3C15.4 33.6 15 31.3 15 29c0-8.5 7-15 17-15z" fill="#33211D" opacity="0.12"/>
+  <path d="M24 23c1.6-2 4.6-3.4 8-3.4s6.4 1.4 8 3.4" stroke="#33211D" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <path d="M22 29c1.9-2.3 5.6-3.9 10-3.9s8.1 1.6 10 3.9" stroke="#33211D" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.55"/>
 </svg>
