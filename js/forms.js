@@ -30,7 +30,7 @@
         $form.trigger("reset");
     });
 
-    // Table reservation forms (home page and reservation page)
+    // Reservation / pre-order forms (home page and reservation page)
     $("#reservationForm").on("submit", function (e) {
         e.preventDefault();
         var $form = $(this);
@@ -38,14 +38,34 @@
         var email = $form.find('input[type="email"]').val().trim();
         var date = $form.find("#date input").val().trim();
         var time = $form.find("#time input").val().trim();
+        var people = $form.find("select").val();
         var $existing = $form.find(".form-feedback");
 
-        if (!name || !emailPattern.test(email) || !date || !time) {
-            showFeedback($form.find(".form-group").first(), $existing, "Por favor completa tu nombre, email, fecha y hora para reservar.", "danger");
+        if (!name || !emailPattern.test(email) || !date || !time || !people) {
+            showFeedback($form.find(".form-group").first(), $existing, "Por favor completa tu nombre, email, fecha, hora y número de personas para reservar.", "danger");
             return;
         }
 
-        showFeedback($form.find(".form-group").first(), $existing, "¡Gracias " + name + "! Tu mesa quedó reservada para el " + date + " a las " + time + ". Te confirmaremos al correo " + email + ".", "success");
+        var parsedDate = (typeof moment !== "undefined") ? moment(date, "L", true) : null;
+        if (parsedDate && !parsedDate.isValid()) {
+            showFeedback($form.find(".form-group").first(), $existing, "La fecha ingresada no es válida. Usa el calendario para seleccionarla.", "danger");
+            return;
+        }
+
+        if (parsedDate && parsedDate.isBefore(moment(), "day")) {
+            showFeedback($form.find(".form-group").first(), $existing, "No puedes reservar en una fecha pasada. Elige una fecha a partir de hoy.", "danger");
+            return;
+        }
+
+        if (parsedDate && parsedDate.isSame(moment(), "day")) {
+            var parsedTime = moment(time, "LT", true);
+            if (parsedTime.isValid() && parsedTime.isBefore(moment())) {
+                showFeedback($form.find(".form-group").first(), $existing, "La hora elegida ya pasó. Elige una hora más adelante para hoy.", "danger");
+                return;
+            }
+        }
+
+        showFeedback($form.find(".form-group").first(), $existing, "¡Gracias " + name + "! Tu pedido quedó reservado para el " + date + " a las " + time + ". Te confirmaremos al correo " + email + ".", "success");
         $form.trigger("reset");
     });
 
